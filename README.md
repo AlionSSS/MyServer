@@ -1,4 +1,6 @@
 # MyServer
+为大家提供一个简易版的服务器项目，用于理解Web服务架构
+
 ## Framwork
 ![架构图](./images/Server_Framework.png)
 
@@ -10,6 +12,11 @@
 5. 根据解析Request得到的url，从ServletContext中获得对应的Servlet的全包名，并进行反射，生成Servlet实例
 6. 不同的Servlet负责不同的业务逻辑处理
 7. Servlet业务处理完成后，将消息封装到Response中，最终由Socket连接返回给Client
+
+## Others
+- 是否进行动态部署：可以考虑修改web.xml的加载机制
+- 提高响应速度：可以在解析xml时，就创建好所有Servlet实例，但是会增加内存消耗
+- 限制响应连接数：可以考虑将new Thread改为由线程池创建
 
 ## LICENSE
 ```
