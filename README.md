@@ -1,6 +1,15 @@
 # MyServer
-## 简易版服务器架构实现
+## Framwork
 ![架构图](./images/Server_Framework.png)
+
+## Introduction
+1. WebApp初始化，创建ServletContext，解析xml文件，将Servlet、Mapping信息存入Context当中
+2. 建立ServerSocket，使用while循环接收Socket连接
+3. Client发起Socket连接请求，Server接收到消息，为每一个Socket连接开启一个子线程
+4. 在每一个Socket对应的线程中，创建Dispatcher，负责解析Request、生成Response
+5. 根据解析Request得到的url，从ServletContext中获得对应的Servlet的全包名，并进行反射，生成Servlet实例
+6. 不同的Servlet负责不同的业务逻辑处理
+7. Servlet业务处理完成后，将消息封装到Response中，最终由Socket连接返回给Client
 
 ## LICENSE
 ```
