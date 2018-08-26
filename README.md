@@ -1,5 +1,6 @@
 # MyServer
-为大家提供一个简易版的服务器项目，用于理解Web服务架构
+- 为大家提供一个简易版的服务器项目，用于理解Web服务架构
+- [GitHub地址](https://github.com/AlionSSS/MyServer)
 
 ## Framwork
 ![架构图](./images/Server_Framework.png)
