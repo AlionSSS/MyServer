@@ -15,6 +15,7 @@
 7. Servlet业务处理完成后，将消息封装到Response中，最终由Socket连接返回给Client
 
 ## Others
+- 修改Socket创建方式，例如使用NIO、AIO、Netty等
 - 是否进行动态部署：可以考虑修改web.xml的加载机制
 - 提高响应速度：可以在解析xml时，就创建好所有Servlet实例，但是会增加内存消耗
 - 限制响应连接数、提高线程并发性能：可以考虑将new Thread改为由线程池创建
