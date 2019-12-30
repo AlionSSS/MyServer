@@ -11,14 +11,14 @@
 3. Client发起Socket连接请求，Server接收到消息，为每一个Socket连接开启一个子线程
 4. 在每一个Socket对应的线程中，创建Dispatcher，负责解析Request、生成Response
 5. 根据解析Request得到的url，从ServletContext中获得对应的Servlet的全包名，并进行反射，生成Servlet实例
-6. 不同的Servlet负责不同的业务逻辑处理
+6. 不同的Servlet负责不同的业务逻辑处理（需要用户自己继承Servlet，编写业务逻辑）
 7. Servlet业务处理完成后，将消息封装到Response中，最终由Socket连接返回给Client
 
 ## Others
 - I/O：修改Socket创建方式，例如使用NIO、AIO、Netty等
+- 限制响应连接数、提高线程并发性能：可以考虑将new Thread改为由线程池创建
 - 是否进行动态部署：可以考虑修改web.xml的加载机制
 - 提高响应速度：可以在解析xml时，就创建好所有Servlet实例，但是会增加内存消耗
-- 限制响应连接数、提高线程并发性能：可以考虑将new Thread改为由线程池创建
 
 ## LICENSE
 ```
